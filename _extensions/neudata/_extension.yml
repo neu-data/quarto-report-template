@@ -33,4 +33,6 @@ contributes:
         - neudata-logo.png
     docx:
       reference-doc: reference.docx
+      format-resources:
+        - neudata-logo.png
       toc-title: Contents

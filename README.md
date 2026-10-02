@@ -89,6 +89,12 @@ format:
 
 Code is hidden by default (`echo: false`). Set `echo: true` on a chunk to show it.
 
+**Copyright page** — every format ends with the Neudata copyright notice (centred logo, notice in monospace), matching the PowerPoint and LaTeX templates. To leave it out:
+
+```yaml
+copyright-page: false
+```
+
 ## Requirements
 
 - [Quarto](https://quarto.org) 1.4 or later (Typst PDF output is built in)

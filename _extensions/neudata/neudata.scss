@@ -81,6 +81,32 @@ h3 { color: $neudata-blue; }
   > :last-child { margin-bottom: 0; }
 }
 
+// Closing copyright page
+.neudata-copyright {
+  margin-top: 4rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba($neudata-navy, 0.12);
+
+  img {
+    display: block;
+    height: 160px;
+    margin: 0 auto 2rem;
+  }
+  .neudata-copyright-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $neudata-navy;
+    margin-bottom: 0.75rem;
+  }
+  .neudata-copyright-text p {
+    font-family: Consolas, "SFMono-Regular", Menlo, "DejaVu Sans Mono", monospace;
+    font-size: 0.8rem;
+    line-height: 1.45;
+    letter-spacing: normal;
+    margin-bottom: 0.8rem;
+  }
+}
+
 // Footer
 .neudata-footer {
   margin-top: 3rem;
