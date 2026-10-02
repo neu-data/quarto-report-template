@@ -1,0 +1,9 @@
+/.quarto/
+*_files/
+template.html
+template.pdf
+template.docx
+template.typ
+/neudata-logo.png
+.Rhistory
+.Rproj.user/

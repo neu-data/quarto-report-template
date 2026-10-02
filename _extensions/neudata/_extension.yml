@@ -1,0 +1,36 @@
+title: Neudata
+author: Neudata Consulting Ltd
+version: 1.0.0
+quarto-required: ">=1.4.0"
+contributes:
+  formats:
+    common:
+      filters:
+        - neudata.lua
+      toc: true
+      number-sections: true
+      fig-dpi: 300
+      fig-align: center
+      execute:
+        echo: false
+        warning: false
+        message: false
+    html:
+      theme: [cosmo, neudata.scss]
+      embed-resources: true
+      toc-location: left
+      title-block-banner: true
+      include-before-body: header.html
+      include-after-body: footer.html
+      format-resources:
+        - neudata-logo.png
+    typst:
+      papersize: a4
+      template-partials:
+        - typst-template.typ
+        - typst-show.typ
+      format-resources:
+        - neudata-logo.png
+    docx:
+      reference-doc: reference.docx
+      toc-title: Contents

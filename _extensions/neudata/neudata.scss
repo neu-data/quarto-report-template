@@ -1,0 +1,97 @@
+/*-- scss:defaults --*/
+
+// Neudata brand palette (sampled from the logo)
+$neudata-teal: #055F56;
+$neudata-navy: #04242F;
+$neudata-blue: #0B376C;
+$neudata-mist: #EAF2F5;
+$neudata-grey: #8A99A3;
+
+$primary: $neudata-teal;
+$secondary: $neudata-blue;
+$info: $neudata-blue;
+$success: $neudata-teal;
+$link-color: $neudata-blue;
+$body-color: #1F2D33;
+$headings-color: $neudata-navy;
+$headings-font-weight: 700;
+$font-family-sans-serif: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$code-color: $neudata-blue;
+$toc-active-border: $neudata-teal;
+
+/*-- scss:rules --*/
+
+// Brand strip above the title banner
+.neudata-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 1.5rem;
+  background: #fff;
+  border-bottom: 4px solid $neudata-teal;
+
+  img { height: 56px; }
+  .neudata-header-meta {
+    text-align: right;
+    font-size: 0.8rem;
+    color: $neudata-navy;
+    line-height: 1.3;
+    a { color: $neudata-teal; text-decoration: none; }
+  }
+}
+
+// Title banner: navy → blue, matching the presentation background arcs
+.quarto-title-banner {
+  background: linear-gradient(120deg, $neudata-navy 0%, $neudata-blue 70%, $neudata-teal 100%) !important;
+  color: #fff;
+  .title { font-weight: 800; letter-spacing: -0.01em; }
+  .subtitle { color: lighten($neudata-mist, 2%); opacity: 0.9; }
+}
+
+.quarto-title-meta-heading { color: $neudata-teal; text-transform: uppercase; letter-spacing: 0.05em; }
+
+h2 {
+  border-bottom: 2px solid $neudata-teal;
+  padding-bottom: 0.3rem;
+  margin-top: 2.2rem;
+}
+h3 { color: $neudata-blue; }
+
+// Tables
+.table, table {
+  thead th {
+    background: $neudata-navy;
+    color: #fff;
+    border-bottom: none;
+  }
+  tbody tr:nth-child(even) { background: rgba($neudata-mist, 0.6); }
+}
+
+// Callouts in brand colours
+.callout-note { border-left-color: $neudata-blue !important; }
+.callout-tip { border-left-color: $neudata-teal !important; }
+
+// Key-findings box: ::: {.key-findings}
+.key-findings {
+  background: $neudata-mist;
+  border-left: 6px solid $neudata-teal;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  border-radius: 0 6px 6px 0;
+  > :last-child { margin-bottom: 0; }
+}
+
+// Footer
+.neudata-footer {
+  margin-top: 3rem;
+  padding: 1.25rem 1.5rem;
+  background: $neudata-navy;
+  color: #fff;
+  font-size: 0.85rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+  justify-content: space-between;
+  a { color: #9fd3cb; }
+  .tagline { font-style: italic; color: #9fd3cb; }
+}

@@ -1,0 +1,23 @@
+<div class="neudata-header">
+  <img src="neudata-logo.png" alt="Neudata Consulting Ltd">
+  <div class="neudata-header-meta">
+    <strong>Neudata Consulting Ltd</strong><br>
+    Data Science · Biostatistics · Research Analytics<br>
+    <a href="https://www.neu-data.com">www.neu-data.com</a>
+  </div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Brand strip goes above the title banner
+    var strip = document.querySelector(".neudata-header");
+    if (strip) document.body.insertBefore(strip, document.body.firstChild);
+
+    // Client / reference / classification join the title metadata
+    var extra = document.querySelector(".neudata-project-meta");
+    var target = document.querySelector(".quarto-title-meta");
+    if (extra && target) {
+      while (extra.firstChild) target.appendChild(extra.firstChild);
+      extra.remove();
+    }
+  });
+</script>

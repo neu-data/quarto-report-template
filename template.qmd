@@ -1,0 +1,102 @@
+---
+title: "Report title"
+subtitle: "Short descriptive subtitle"
+author:
+  - name: Analyst Name
+    affiliations:
+      - name: Neudata Consulting Ltd
+date: today
+date-format: "D MMMM YYYY"
+client: "Client organisation"
+reference: "NDC-2026-000"
+confidentiality: "Confidential"
+abstract: |
+  One-paragraph executive summary: the question, the data, the approach and the
+  headline finding. Keep it readable by a non-technical decision-maker.
+format:
+  neudata-html: default
+  neudata-typst: default
+  neudata-docx: default
+---
+
+```{r}
+#| label: setup
+library(ggplot2)
+
+neudata_cols <- c("#055F56", "#0B376C", "#04242F", "#5FA39B", "#6C8DB8", "#8A99A3")
+
+theme_set(
+  theme_minimal(base_size = 11) +
+    theme(
+      plot.title = element_text(face = "bold", colour = "#04242F"),
+      axis.title = element_text(colour = "#04242F"),
+      panel.grid.minor = element_blank(),
+      legend.position = "bottom"
+    )
+)
+```
+
+# Introduction
+
+Describe the background, the client's objective and the questions this report answers.
+
+::: {.key-findings}
+**Key findings**
+
+- Finding one, stated plainly with its size and uncertainty.
+- Finding two.
+- Recommendation or implication for the client.
+:::
+
+# Data and methods
+
+Summarise the data sources, inclusion criteria, variables and statistical methods. Refer to the statistical analysis plan for full detail.
+
+# Results
+
+## Descriptive summary
+
+@tbl-summary summarises the example data.
+
+```{r}
+#| label: tbl-summary
+#| tbl-cap: "Mean tooth length by supplement and dose (example data)."
+summary_tbl <- aggregate(len ~ supp + dose, data = ToothGrowth, FUN = function(x) round(mean(x), 1))
+names(summary_tbl) <- c("Supplement", "Dose (mg/day)", "Mean length")
+knitr::kable(summary_tbl)
+```
+
+## Main analysis
+
+@fig-main shows the relationship using the Neudata palette.
+
+```{r}
+#| label: fig-main
+#| fig-cap: "Tooth length by dose and supplement (example data)."
+#| fig-width: 7
+#| fig-height: 4
+ggplot(ToothGrowth, aes(factor(dose), len, fill = supp)) +
+  geom_boxplot(alpha = 0.85, outlier.shape = NA) +
+  geom_jitter(aes(colour = supp), width = 0.15, size = 1.2, alpha = 0.7, show.legend = FALSE) +
+  scale_fill_manual(values = neudata_cols, name = "Supplement") +
+  scale_colour_manual(values = neudata_cols) +
+  labs(x = "Dose (mg/day)", y = "Tooth length")
+```
+
+# Discussion
+
+Interpret the results, note limitations and set out recommendations.
+
+::: {.callout-note}
+## Reproducibility
+
+This report was generated from code. Software versions are listed in the appendix.
+:::
+
+# Appendix {.appendix}
+
+```{r}
+#| label: session
+#| echo: true
+sessionInfo()$R.version$version.string
+```
